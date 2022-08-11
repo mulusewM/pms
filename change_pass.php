@@ -1,0 +1,184 @@
+<?php
+	include("connection.php");  
+ session_start();
+if(isset($_SESSION['user_id']))
+ {
+  $mail=$_SESSION['user_id'];
+ } else {
+ ?>
+
+<script>
+  alert('You Are Not Logged In !! Please Login to access this page');
+  alert(window.location='login.php');
+ </script>
+ <?php
+ }
+ ?>
+<?php
+		
+		include("headerr.php");
+?>
+
+<?php
+include("connection.php");
+$message="";
+$messag="";
+$uid=$_SESSION['login_user'];
+		$sq0="select * from user_account WHERE userName='$uid'";
+		$sq54=mysql_query($sq0,$con);
+		while($row=mysql_fetch_array($sq54))
+		{
+			$userid=$row['user_id'];
+			$pass=$row['password'];
+		}
+		?>
+		
+
+<html>
+<head>
+<title>PHARMACY</title>
+<link href="logstyle.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="aa.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<table  border="0" align="center" width="750px">
+<!--Header-->
+<?php 
+		include("header.php");
+		?>
+<!--End Of Header-->
+<!--Main menus-->
+<tr>
+<td colspan="3" width="750px">
+<div id="sse2">
+        <div id="sses2">
+	   
+         <u id="unique">
+		 
+		  <li><a href="logout.php" id="log" style="margin-left:750px;">logout</a></li>
+		 	
+         </ul>
+		
+         </div>
+    </div>
+</td>
+</tr>
+<!--End of main menus-->
+<table align="center" id="insides" width="850px" style="background: white url(img/2.jpg);">
+<tr>
+<!--Sub menus-->
+<td width="25%" valign="top" id="insides">
+
+<?php 
+		include("Admin_menu.php");
+		?>
+
+
+
+</td>
+<!--End Of Sub menus-->
+<!--Body section-->
+
+<td valign="top">
+<br></br>
+	
+<div class="accdiv">
+
+<center><table border="0"  >
+
+	
+			
+			
+					<div style="background-color:#336699;border-radius:0px; color:#000000; padding:5px; height:22px;"> 
+ 
+<strong><font color="white" size="4px"font-family="times new romman"; ><center>Change Password</center></font></strong>
+ </div>
+			<center><form action="" method="POST">
+			
+				<tr>
+					<td><label>Old password</label></td>
+					<td><input type="password" name="old" required pattern="[A-Z a-z0-9]+"/></td>
+				</tr>
+				<tr>
+					<td><label>New password</label></td>
+					<td><input type="password" name="new"  required pattern="[A-Z a-z0-9]+"/></td>
+				</tr>
+				<tr>
+					<td></font><label>Confirm password</label></td>
+					<td><input type="password" name="rt" required pattern="[A-Z a-z0-9]+"/></td>
+				</tr>
+				
+			<tr><td></td>
+				<td><input type="submit" name="Change" value="Change"/>
+				<input type="reset" value="Clear"/>
+				</td>
+			</tr>
+			<tr><td height="30px">
+			<?php
+  echo $message;
+echo $messag;
+?>		
+			</td></tr>
+			</form>
+			</center>
+				
+</div>
+</td>
+</th>
+</table></center>
+		
+  </form>
+  <?php
+$message="";
+if(isset($_POST['Change']))
+		{
+		        $msg="";
+		        $up="";
+				$od=$_POST['old'];				
+				$old=$od;				
+				$new=$_POST['new'];				
+				$nw=$new;				
+			    $rety=$_POST['rt'];
+				
+				if($pass==$old && $new == $rety)
+				    {
+					$up=mysql_query("update user_account set password='$nw' where userName='$uid'");
+				    
+				    if($up)
+					{
+					echo "successfully changed!";									
+					}
+					else if($old!=$pass)
+					{
+					echo "incorrect old password!";									
+					}
+					else if($new!=$rety)
+					{
+					echo "please confirm new password correctly";
+					}				
+					}
+					
+					
+	    }
+    
+	
+?>
+<!--Php Script-->  
+	
+
+</div>
+</td>
+</tr>
+</table>
+<!--End Body of section-->
+</table>
+
+<!--Footer-->
+<?php
+include("footer.php");
+?>
+<!--End of Footer-->
+                                                                        
+</body>
+</html>
+

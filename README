@@ -1,0 +1,7 @@
+// username and password information
+username=aaaaa 	pass=admin
+username=ccccc 	pass=cashier
+username=ppppp 	pass=pharmacist
+username=sssss 	pass=supplier
+username=ssss 	pass=storer
+username=mmmm 	pass=manager

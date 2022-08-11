@@ -1,0 +1,70 @@
+body {
+background: white url(img/logbg.jpg) repeat-x left top;	
+}
+
+/*Button*/
+.button_example{
+font-size:15px;
+margin-bottom:20px;
+font-family:times new romman;
+}
+
+.button_example:hover{
+ 
+ background-color: #26759e;
+ width:86;
+ 
+ }
+ .men
+{
+ margin: 20px 40px 10px 10px;/*used to adjust the distance between each menu item. Now the distance is 20+20=40px.*/
+    color: black;
+    font: normal 17px times new roman;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+	font-weight:bold;
+	margin-bottom:0px;
+	 margin-top:15px; 
+	width:60px;
+	height:30px;
+	
+}
+ .men:hover{
+ 
+ background-color: white;
+	color:#752935;
+ 
+ }
+#loginlink
+{
+background: white url(img/Menu.jpg) repeat-x left top;
+width:40px;
+height:20px;
+border-radius: 15px;
+}
+
+#logoutlink
+{
+background: white url(img/Menu.jpg) repeat-x left top;
+width:40px;
+height:20px;
+border-radius: 15px;
+}
+#footer
+{
+background:url(img/bg.jpg);
+height:130px
+}
+#insides {
+   border:2px solid #bbb;
+   	}
+.para1_text{
+font-family:times new romman;
+font-size:12px;
+line-height:5px;
+line-width:80px;
+text-align:justify;
+padding-left:0px;
+lebel-width:5px;
+}

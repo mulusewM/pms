@@ -1,0 +1,133 @@
+#sse2
+{
+    background-color: #bbb;
+	width:820px;
+    height: 20px;
+    padding: 20px;
+	text-align:center;
+	padding-left:-10px;
+	margin-top:-5px;
+}
+#sses2 ul 
+{ 
+    position: relative;
+    list-style-type: none;
+    float:center;
+    margin:0;
+}
+#sses2 li
+{
+    float:right;
+    list-style-type: none;
+}
+#unique li
+{
+    float:left;
+    list-style-type: none;
+	
+}
+#sses2  li a:hover {
+background-color: white;
+	color:#752935;
+	height:40px;
+	
+	
+}
+
+#sses2 li a
+{
+   
+    margin: 0 15px;/*used to adjust the distance between each menu item. Now the distance is 20+20=40px.*/
+    color: #fff;
+    font: bold 18px times new roman;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+	font-weight:bold;
+	background-color:#752935;
+	border-radius:10px;
+	height:30px;
+	width:80px;
+}
+
+.left_menu  a
+{
+ margin-top:15px;/*used to adjust the distance between each menu item. Now the distance is 20+20=40px.*/
+    color: white;
+    font: normal 17px times new roman;
+    text-align: left;
+    text-decoration: none;
+    display: block;
+	font-weight:bold;
+	margin-bottom:15px;
+	margin-left:-20px;
+	
+	
+	height:30px;
+}
+.left_menu 
+{
+  background:url(images/Capture1.jpg);
+  border-radius:25px ;
+  
+   box-shadow:0 0 18px rgba();
+ 
+}
+.left{
+background:url(images/bg10.jpg);
+
+}
+.a a
+{
+color:white;
+font-weight:bold;
+font: normal 20px times new roman;}
+.menu  li a:hover {
+background-color: white;
+	color:#752935;
+	
+}
+.logdiv{
+width:420px; 
+height:350px;
+ margin:0 auto; 
+ border-radius:15px;
+ box-shadow:0 0 18px rgba(0,0,0,0.4); 
+ margin-top:20px; 
+}
+.accdiv{
+width:420px;  
+margin:0 auto;  
+ box-shadow:0 0 50px rgba(0,0,0,0.4);
+ margin-top:20px; color:#000000;
+ }
+ .search{
+margin-left:-5px;
+ margin-top:-14px;
+ height:30px;}
+ .searc{
+ margin-left:-500px;
+ margin-top:-5px;
+ height:30px;
+ width:155px;}
+ .for{
+ width:80px;}
+ .forr{
+ width:50px;}
+ #bill{
+ margin-left:90px;
+ }
+ .bb{
+width:161px;
+ }
+@media print
+{
+.noprint {display:none;}
+}
+.bt{
+width:60px;
+}
+.btn{
+border-radius:2px;
+color:red;
+}

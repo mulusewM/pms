@@ -1,0 +1,192 @@
+<?php
+		
+		include("headerr.php");
+	
+?>
+
+
+<html>
+<head>
+
+<title>PHARMACY</title>
+
+<link href="logstyle.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="aa.css" rel="stylesheet" type="text/css" media="screen" />
+
+</head>
+<body>
+<table  border="0" align="center" width="750px">
+<!--Header-->
+
+<tr>
+<td width="700px" colspan="3" height="120px">
+<p><img src="img/9.png" align="left" width="150px"  style="margin-top:20px;">
+<table style=" margin-bottom:0px;margin-top:20px;border-radius:0px; align:center; width:700px;background:url(images/Capture1.jpg);	 height:150px;" >
+<tr>
+		<th>
+			
+			<p><font style="color:white; font-family:timesnewroman; font-size:35px; font-weight:bold;">Pharmacy management system</p>
+		</th>		
+		
+	</tr>
+
+</table>
+</p>
+</td>
+</tr>
+
+<!--End Of Header-->
+<!--Main menus-->
+<tr>
+<td colspan="3" width="750px">
+<div id="sse2">
+        <div id="sses2" >
+		<h2><u>Drug information</u></h2>
+		<ul >
+		 <li><a href="commentpass.php">comment</a></li>
+		  <li><a href="home.php">Home</a></li>
+		
+		
+			
+         </ul>
+         
+         <form action="search_drugs.php" method='POST'>
+								<input type="text" name="searchs"  class ="searc" placeholder="Enter Drug Name Here..." required x-moz-errormessage="Please enter drug name">
+								<input type="submit" value="Search" name="search" style="cursor:pointer;" class ="search"/>
+							
+			
+         
+		</form>
+<!--<form action="comment.php" method='post'>
+		
+		<ul><td class='para1_text'><b> comment:</b></td><br>
+            <!--<input type="textarea" name="comment" value=""required> <br>
+            <textarea name="comment" value=""required rows="10"cols="20" style=" backgcolor:blue">
+             </textarea><br></ul>
+		</form>-->
+         </div>
+    </div>
+</td>
+</tr>
+<!--End of main menus-->
+<table align="center" id="insides" width="850px" style="background: white url(img/2.jpg);">
+<tr>
+<!--Sub menus-->
+<td width="25%" height="500px" valign="top" id="insides">
+<table >
+
+<tr>
+<th align="center" width="250px" height="25px" bgcolor="#336699"><font face="arial" color="white" size="4">pharmacy</font></th>
+</tr>
+
+
+<tr>
+<td ><img src="slideshow/images/12.jpg" style="height:320px;"  valign="top"></td>
+</tr>
+
+</table>
+<table border="0">
+<tr>
+<th width="250px" bgcolor="#336699" height="25px"><font face="times new Roman" color="white" size="5"><center>Find Us</center></font></th>				
+</tr>
+<tr><td>
+                     <a href="http://www.facebook.com"> <img src="images/facebook.jpg" width="70px" height="70px" style="margin-top:30px;"></a>&nbsp
+					
+					<a href="http://www.gmail.com"> <img src="images/email.png" width="40px" height="30px"style="margin-top:30px;"</a>&nbsp &nbsp &nbsp
+					
+					<a href="http://www.yahoo.com"> <img src="images/yahoo.png" width="40px" height="30px"style="margin-top:30px;"</a>
+				
+</td></tr>
+</table>
+
+
+
+</td>
+<!--End Of Sub menus-->
+<!--Body section-->
+<td valign="top">
+<br>
+
+<table align="center" style="border-radius:15px;border:1px solid #336699;box-shadow:1px 1px 10px black;">
+			
+						
+<?php
+	include('connection.php');				
+if ($_SERVER["REQUEST_METHOD"] == "POST") {				
+
+
+	
+$con=mysql_connect("localhost","root","");
+if(!$con){
+	die("unable to connect :".mysql_error());
+}
+mysql_select_db("pharmacyfinall",$con);
+$con=mysql_connect("localhost","root","")or die ("unable to connect".mysql_error());
+mysql_select_db("pharmacyfinall",$con);					   
+if(isset($_POST['search']))
+    {
+                    
+					$date=$_POST['searchs'];
+					$sql= "SELECT * FROM store where drugName = '$date'";
+					$result=mysql_query($sql,$con);
+					$count=mysql_num_rows($result);
+					if($count < 1)
+					{
+					echo('<p class="wrong">This drug is not available</p>');
+					
+					}
+					else
+					{
+					echo"<center>";
+					echo"";
+					echo "<table style='width:600px;height:50px;border-radius:10px;border-radius:10px;' border='2' align='center'>
+<tr>
+
+<th bgcolor='#336699'><font color='white'>Drug Name</th>
+<th bgcolor='#336699'><font color='white'>Drug Type</th>
+<th bgcolor='#336699'><font color='white'>Manufacture Date</th>
+<th bgcolor='#336699'><font color='white'>Expired Date</th>
+<th bgcolor='#336699'><font color='white'>Quantity</th>
+<th bgcolor='#336699'><font color='white'>selling price</th>
+
+</tr>";
+while($row = mysql_fetch_array($result))
+  {
+ 
+  print ("<tr>");
+  
+  print ("<td>" . $row['drugName']. "</td>");
+  print ("<td>" . $row['drugType']. "</td>");
+  print ("<td>" . $row['manuDate']. "</td>");  
+  print ("<td>" . $row['expireDate']. "</td>"); 
+  print ("<td>" . $row['quantity']. "</td>"); 
+  print ("<td>" . $row['sellingPrice']. "</td>"); 
+  print ("</tr>");
+  }
+print( "</table>");
+echo"</center>";
+}
+}
+}
+?>
+
+
+
+	
+
+</td>
+</tr>
+</table>
+<!--End Body of section-->
+</table>
+
+<!--Footer-->
+
+<?php
+include("footer.php");
+?>
+
+<!--End of Footer-->
+                                                                        
+</body>
+</html>
